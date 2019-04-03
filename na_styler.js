@@ -40,8 +40,15 @@ function setStyles() {
             sheetImg.setAttribute("src", "na_style_" + i + ".css")
             sheetImg.addEventListener(function () {
                   fancySheet.setAttribute("")
-            })
+            });
+            sheetImg.appendChild(figBox);
       }
+      var thumbStyles = document.createElement("style");
+      document.head.appendChild(thumbStyles);
+
+      document.styleSheets[document.styleSheets.length - 1].insertRule(
+            "figure#styleThumbs{}"
+      )
 }
 
 
