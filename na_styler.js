@@ -47,8 +47,26 @@ function setStyles() {
       document.head.appendChild(thumbStyles);
 
       document.styleSheets[document.styleSheets.length - 1].insertRule(
-            "figure#styleThumbs{}"
-      )
+            "figure#styleThumbs { \
+                  position: absolute; \
+                  left: 0px; \
+                  button: 0 px; \
+            }", 0);
+
+      document.styleSheets[document.styleSheets.length - 1].insertRule(
+            "figure#styleThumbs img { \
+                  outline: 1px solid black; \
+                  cursor: pointer; \
+                  opacity: 0.75; \
+                  }", 1);
+
+      document.styleSheets[document.styleSheets.length - 1].insertRule(
+            "figure#styleThumbs img:hover { \
+             outline: 1px solid red; \
+             opacity: 1; \
+      }", 2);
+
+
 }
 
 
