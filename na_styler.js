@@ -26,18 +26,19 @@ window.addEventListener("onload", setStyles);
 
 function setStyles() {
       var styleNum = randInt(5);
-      // var link = document.createElement("link");
+      var link = document.createElement("link");
       link.setAttribute("rel", "styleSheet");
       link.setAttribute("id", "fancySheet");
       link.setAttribute("href", "na_style_" + styleNum + ".css");
       document.head.appendChild(fancySheet);
+      var figBox = document.createElement("figure");
       figBox.setAttribute("id", "styleThumbs");
       document.getElementById("box").appendChild(figBox)
 
-      for (var i = 0; i <= 4; i++) {
+      for (var i = 0; i <= styleNum.thumbStyles; i++) {
             var sheetImg = document.createElement("img");
-            sheetImg.setAttribute("src", "na_small_" + i + ".css")
-            sheetImg.setAttribute("src", "na_style_" + i + ".css")
+            sheetImg.setAttribute("src", "na_small_" + i + ".css");
+            sheetImg.setAttribute("src", "na_style_" + i + ".css");
             sheetImg.addEventListener(function () {
                   fancySheet.setAttribute("")
             });
@@ -46,21 +47,21 @@ function setStyles() {
       var thumbStyles = document.createElement("style");
       document.head.appendChild(thumbStyles);
 
-      document.styleSheets[document.styleSheets.length - 1].insertRule(
+      document.styleSheets[document.thumbStyles.length - 1].insertRule(
             "figure#styleThumbs { \
                   position: absolute; \
                   left: 0px; \
                   button: 0 px; \
             }", 0);
 
-      document.styleSheets[document.styleSheets.length - 1].insertRule(
+      document.styleSheets[document.thumbStyles.length - 1].insertRule(
             "figure#styleThumbs img { \
                   outline: 1px solid black; \
                   cursor: pointer; \
                   opacity: 0.75; \
                   }", 1);
 
-      document.styleSheets[document.styleSheets.length - 1].insertRule(
+      document.styleSheets[document.thumbStyles.length - 1].insertRule(
             "figure#styleThumbs img:hover { \
              outline: 1px solid red; \
              opacity: 1; \
