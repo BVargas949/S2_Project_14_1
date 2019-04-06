@@ -21,47 +21,71 @@
 
 */
 
+// once the window opens, 
+window.onload = setStyles;
 
-window.addEventListener("onload", setStyles);
-
+//cycle through all the page styles
 function setStyles() {
-      var styleNum = randInt(5);
-      var link = document.createElement("link");
-      link.setAttribute("rel", "styleSheet");
-      link.setAttribute("id", "fancySheet");
-      link.setAttribute("href", "na_style_" + styleNum + ".css");
-      document.head.appendChild(fancySheet);
-      var figBox = document.createElement("figure");
-      figBox.setAttribute("id", "styleThumbs");
-      document.getElementById("box").appendChild(figBox)
 
-      for (var i = 0; i <= styleNum.thumbStyles; i++) {
+      //variable with a function that gives a random number
+      var styleNum = randInt(5);
+
+      //variable that holds an HTML Node
+      var fancySheet = document.createElement("link");
+
+      //Give the HTML node an specific job (stylesheet link)
+      fancySheet.setAttribute("rel", "styleSheet");
+
+      //GIve the HTML Node an id attribute
+      fancySheet.setAttribute("id", "fancySheet");
+
+      //create an attribute string that can loop through values within a variable
+      fancySheet.setAttribute("href", "na_style_" + styleNum + ".css");
+
+      //place the node within the element tree
+      document.head.appendChild(fancySheet);
+
+      //create another Node (figure element this time)
+      var figBox = document.createElement("figure");
+
+      // Give the node an ID of StyleThumbs
+      figBox.setAttribute("id", "styleThumbs");
+
+      //append the node into the div with an ID of "box"
+      document.getElementById("box").appendChild(figBox);
+
+      // The for loop shall loop theough all the images and Stylesheets, then it shall be appended to the HTML
+      for (var i = 0; i <= 4; i++) {
             var sheetImg = document.createElement("img");
-            sheetImg.setAttribute("src", "na_small_" + i + ".css");
-            sheetImg.setAttribute("src", "na_style_" + i + ".css");
-            sheetImg.addEventListener(function () {
-                  fancySheet.setAttribute("")
-            });
-            sheetImg.appendChild(figBox);
+            sheetImg.setAttribute("src", "na_small_" + i + ".png");
+            sheetImg.setAttribute("alt", "na_style_" + i + ".css");
+            sheetImg.onclick = function (e) {
+                  fancySheet.setAttribute("href", e.target.alt);
+            }
+            figBox.appendChild(sheetImg);
       }
+
+      //create a styles nodes and append to the document head
       var thumbStyles = document.createElement("style");
       document.head.appendChild(thumbStyles);
 
-      document.styleSheets[document.thumbStyles.length - 1].insertRule(
+      //All the Styles chunks making up the node 
+      document.styleSheets[document.styleSheets.length - 1].insertRule(
             "figure#styleThumbs { \
                   position: absolute; \
                   left: 0px; \
                   button: 0 px; \
-            }", 0);
+                  margin-top: 500px \
+      }", 0);
 
-      document.styleSheets[document.thumbStyles.length - 1].insertRule(
+      document.styleSheets[document.styleSheets.length - 1].insertRule(
             "figure#styleThumbs img { \
                   outline: 1px solid black; \
                   cursor: pointer; \
                   opacity: 0.75; \
                   }", 1);
 
-      document.styleSheets[document.thumbStyles.length - 1].insertRule(
+      document.styleSheets[document.styleSheets.length - 1].insertRule(
             "figure#styleThumbs img:hover { \
              outline: 1px solid red; \
              opacity: 1; \
